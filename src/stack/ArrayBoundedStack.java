@@ -14,20 +14,24 @@ public class ArrayBoundedStack<T> implements IStackInterface<T> {
   }
 
   public int size(){
-    return Integer.parseInt(null);
+    return stack.length;
   }
 
   public void popSome(int count){
-
+    if (count == -1)
+      new StackUnderflowException("Uh oh, there is nothing to remove.");
+    stack[count] = null;
+    topIndex--;
   }
 
   public boolean swapStart(){
+    
     return false;
   }
 
   @Override
   public String toString(){
-    return null;
+    return stack.toString();
   }
 
   @Override
@@ -40,10 +44,11 @@ public class ArrayBoundedStack<T> implements IStackInterface<T> {
 
   @Override
   public void pop() throws StackUnderflowException {
-    if(isEmpty())
-      new StackUnderflowException("Uh oh, there is nothing to remove.");
-    stack[topIndex] = null;
-    topIndex--;
+    popSome(topIndex);
+//    if(isEmpty())
+//      new StackUnderflowException("Uh oh, there is nothing to remove.");
+//    stack[topIndex] = null;
+//    topIndex--;
   }
 
   @Override
