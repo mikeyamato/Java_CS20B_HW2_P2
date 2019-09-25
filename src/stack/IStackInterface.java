@@ -6,4 +6,8 @@ public interface IStackInterface<T> {
   T top() throws StackUnderflowException;
   boolean isFull();
   boolean isEmpty();
+
+  int size();
+
+  boolean swapStart();
 }
